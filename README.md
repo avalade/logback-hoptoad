@@ -54,5 +54,15 @@ If the REQUEST_URL is specified, then the following can also be set:
  
 The REQUEST_PARAMS, SESSION_PARAMS and CGI_PARAMS should be ampersand delimited, URL encoded key/value pairs.
 
+Because the above static variables are declared in Scala, you'll have to set them like
+this if you are using Java:
+
+    import org.slf4j.MDC;
+    
+    MDC.setProperty(com.gs.logging.HoptoadLayout.ENVIRONMENT_NAME(), "production")
+
+If you don't like the extra parens that you have to use, then you should be using Scala
+instead of Java :-)
+
 ## License
 slf4j-hoptoad is released under the Apache 2 License.
