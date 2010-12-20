@@ -1,0 +1,21 @@
+<configuration>
+  <appender name="HOPTOAD" class="com.gs.logging.HoptoadAppender">
+    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+      <level>WARN</level>
+    </filter>
+    <apiKey>083d28da1da16be958d3dd1e1912beb9</apiKey>      
+  </appender>
+      
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>
+        %-4relative [%thread] %-5level %logger{30} - %msg%n
+      </pattern>
+    </encoder>
+  </appender>
+      
+  <root level="DEBUG">
+    <appender-ref ref="HOPTOAD" />
+    <appender-ref ref="CONSOLE" />
+  </root>
+</configuration>
