@@ -12,7 +12,8 @@ to the ERROR level only.
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
           <level>ERROR</level>
         </filter>
-        <apiKey><!-- INSERT HOPTOAD API KEY HERE --></apiKey>      
+        <apiKey><!-- INSERT HOPTOAD API KEY HERE --></apiKey>
+        <secure>false</secure> <!-- Change to true if you are using HTTPS for Hoptoad -->
       </appender>
       
       <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">

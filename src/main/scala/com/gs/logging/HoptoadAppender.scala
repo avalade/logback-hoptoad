@@ -32,7 +32,8 @@ import dispatch.{Logger, :/, Threads, Http, Request => HR}
  */
 class HoptoadAppender extends AppenderBase[ILoggingEvent] {
   @BeanProperty var apiKey: String = null
-
+  @BeanProperty var secure: Boolean = false
+  
   val http = new Http with Threads with Logger {
     val LOG = LoggerFactory.getLogger("com.gs.logging.HoptoadAppender")
     def info(msg: String, items: Any*) = LOG.info(msg, items)
@@ -64,11 +65,13 @@ class HoptoadAppender extends AppenderBase[ILoggingEvent] {
 
   implicit def request2hoptoad(r: HR) = new HoptoadRequest(r)
 
+  def is_secure(r: HR): HR = if (secure) r.secure else r
+  
   def append(eventObject: ILoggingEvent) = {
     if (isStarted)
       http on_error {
         case e => System.err.println("Unable to complete Hoptoad request: %s".format(e.getMessage))
-      } future(:/("hoptoadapp.com") / "notifier_api" / "v2" / "notices" <<< eventObject >|)
+      } future(is_secure(:/("hoptoadapp.com") / "notifier_api" / "v2" / "notices") <<< eventObject >|)
   }
 }
 
