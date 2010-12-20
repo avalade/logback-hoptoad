@@ -188,7 +188,7 @@ class HoptoadNotice(apiKey: String,
       <api-key>{apiKey}</api-key>
       <notifier>
         <name>Hoptoad Logback Notifier</name>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
         <url>http://github.com/avalade/slf4j-hoptoad</url>
       </notifier>
       <error>
