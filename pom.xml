@@ -9,6 +9,26 @@
   <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
+  <developers>
+    <developer>
+      <id>avalade</id>
+      <name>Aaron Valade</name>
+      <email>aaron@sniflabs.com</email>
+      <organization>SNIF Labs</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>HKT</timezone>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:avalade/logback-hoptoad.git</connection>
+    <url>scm:git:git@github.com:avalade/logback-hoptoad.git</url>
+    <developerConnection>scm:git:git@github.com:avalade/logback-hoptoad.git</developerConnection>
+  </scm>
+
+
   <properties>
     <scala-version>2.8.1</scala-version>
     <logback-version>0.9.25</logback-version>
